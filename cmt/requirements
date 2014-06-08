@@ -1,0 +1,22 @@
+# A package to setup a user area to analyze a Data Summary Tree (DST).  The
+# DST is created using the captSummary package and contains several trees.
+# This package provides the tools to simplify handling of the DST without
+# depending on the rest of the CAPTAIN software. 
+
+package captDST
+
+# Define the strategies.  This will override any project specific strategy
+# definitions. 
+build_strategy without_installarea
+setup_strategy root config
+structure_strategy without_version_directory
+
+# NOTICE: This package needs ROOT, but does not have to depend on ROOT.  It
+# only needs the root executable in the path.  If you have ROOT installed,
+# you can comment out the next line that uses the CAPTAIN LCGCMT version of
+# ROOT.
+use ROOT * LCG_Interfaces
+
+# Set the location of the control scripts.  
+path_prepend PATH "$(CAPTDSTROOT)/scripts"
+
